@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:news/home/news/news_widget.dart';
 import 'package:news/home/tabs/tab_item.dart';
 
 import '../../model/SourceResponse.dart';
@@ -23,6 +24,8 @@ class _TabWidgetState extends State<TabWidget> {
         child: Column(
           children: [
             TabBar(
+              dividerColor: Colors.transparent,
+
               isScrollable: true,
               indicatorColor: Colors.transparent,
               onTap: (index) {
@@ -33,6 +36,7 @@ class _TabWidgetState extends State<TabWidget> {
                     isSelected: selectedIndex == widget.sourcesList.indexOf(source),
                     source: source),).toList()
             ),
+            NewsWidget(source: widget.sourcesList[selectedIndex])
           ],
         )
 
